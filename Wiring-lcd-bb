@@ -1,0 +1,15 @@
+en c
+lcd          |  bbb
+---------------------
+1          	gnd
+2          	+5v
+3          	POT middle
+4(RS)      	p9-13
+5(r/w)     	gnd
+6(E/clkEn) 	p9-12
+11(DB4)    	p9-15
+12(DB5)  	P8-11
+13(DB6)    	P8-12
+14(DB7)    	P8-14
+15(BackLight+)  5v+
+16(Backlight-)  gnd
