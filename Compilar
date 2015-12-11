@@ -13,8 +13,17 @@ echo out > /sys/class/gpio/gpio48/direction
 echo 31 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio31/direction
 
-seguido de esto para compilar:
+seguido de esto para compilar que envie cadenas la lcd:
 gcc -c new_beagle_gpio.c
 gcc -c beagle_hd44780.c
 gcc new_beagle_gpio.o beagle_hd44780.o example_04.c
 ./a.out
+
+
+Para compilar el programa dht-test.c que es para imprimir lo del sensor en la lcd:
+gcc -c bbb_dht_read.c
+gcc -c bbb_mmio.c
+gcc -c common_dht_read.c
+gcc -c new_beagle_gpio.c
+gcc -c beagle_hd44780.c
+gcc bbb_dht_read.o bbb_mmio.o common_dht_read.o new_beagle_gpio.o beagle_hd44780.o dht_test.c -lrt
