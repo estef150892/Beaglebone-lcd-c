@@ -1,5 +1,5 @@
 Antes de compilar se debe exportar los puertos de los pines
-
+Before compiling you need to export the following on the BBB
 echo 60 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio60/direction
 echo 26 > /sys/class/gpio/export
@@ -13,17 +13,23 @@ echo out > /sys/class/gpio/gpio48/direction
 echo 31 > /sys/class/gpio/export
 echo out > /sys/class/gpio/gpio31/direction
 
-seguido de esto para compilar que envie cadenas la lcd:
+To compile the test string sending to lcd:
 gcc -c new_beagle_gpio.c
 gcc -c beagle_hd44780.c
 gcc new_beagle_gpio.o beagle_hd44780.o example_04.c
 ./a.out
 
-
-Para compilar el programa dht-test.c que es para imprimir lo del sensor en la lcd:
+To compile prueba.c:
 gcc -c bbb_dht_read.c
 gcc -c bbb_mmio.c
 gcc -c common_dht_read.c
 gcc -c new_beagle_gpio.c
 gcc -c beagle_hd44780.c
-gcc bbb_dht_read.o bbb_mmio.o common_dht_read.o new_beagle_gpio.o beagle_hd44780.o dht_test.c -lrt
+gcc bbb_dht_read.o bbb_mmio.o common_dht_read.o new_beagle_gpio.o beagle_hd44780.o prueba.c -lrt
+./a.out
+
+to compile Chat-lcd.c
+gcc -c new_beagle_gpio.c
+gcc -c beagle_hd44780.c
+gcc new_beagle_gpio.o beagle_hd44780.o Chat-lcd.c
+./a.out
