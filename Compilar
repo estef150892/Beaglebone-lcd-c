@@ -1,20 +1,20 @@
 Antes de compilar se debe exportar los puertos de los pines
 
-#echo 60 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio60/direction
-#echo 26 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio26/direction
-#echo 44 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio44/direction
-#echo 45 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio45/direction
-#echo 48 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio48/direction
-#echo 31 > /sys/class/gpio/export
-#echo out > /sys/class/gpio/gpio31/direction
+echo 60 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio60/direction
+echo 26 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio26/direction
+echo 44 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio44/direction
+echo 45 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio45/direction
+echo 48 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio48/direction
+echo 31 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio31/direction
 
 seguido de esto para compilar:
-#gcc -c new_beagle_gpio.c
-#gcc -c beagle_hd44780.c
-#gcc new_beagle_gpio.o beagle_hd44780.o example_04.c
-#./a.out
+gcc -c new_beagle_gpio.c
+gcc -c beagle_hd44780.c
+gcc new_beagle_gpio.o beagle_hd44780.o example_04.c
+./a.out
