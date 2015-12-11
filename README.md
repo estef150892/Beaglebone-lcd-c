@@ -1,7 +1,7 @@
 # Beaglebone-lcd-c
 library para el beaglebone con una lcd JHD162A
 
-To the know how to wire the lcd to the beaglebone check the 'Wiring-lcd-bb'
+To know how to wire the lcd to the beaglebone check the 'Wiring-lcd-bb'
 
 The libraries used for the beaglebone-lcd communication are taken from:
 https://github.com/nunoalves/BeagleBone-HD44780
