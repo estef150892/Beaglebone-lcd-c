@@ -104,9 +104,9 @@ int main(int argc, char** argv)
     int io = 0;
      
     while(1){//ciclo infinito
-        status = bbb_dht_read(sensor, base, number, &humidity, &temperature); //leer sensor
+        status = bbb_dht_read(sensor, base, number, &humidity, &temperature); //Read sensor
          
-        //no se asegura que se tenga un 100% de lectura de los datos del sensor
+        //It is not assured that the readings of data are a 100% of the sensor
  
         if(status != DHT_SUCCESS)//lectura erronea
         {
@@ -115,22 +115,22 @@ int main(int argc, char** argv)
         }
   
         // Output the result
-        if(status == DHT_SUCCESS)//lectura exitosa
+        if(status == DHT_SUCCESS)//There's a successful reading
         {
-            for(io=0;io<=47;io++)//borrar buffer
+            for(io=0;io<=47;io++)//erase buffer
                 output[io] = 0;
         pos = 0;
         if(out_temp){
-            pos = sprintf(output, out_short ? "%.2f" : "T:%.2fC", temperature);//acomodo del buffer temperatura
-            sprintf(mensaje, out_short ? "%.2f" : "T:%.2fC", temperature);//cadena a imprimir temperatura
+            pos = sprintf(output, out_short ? "%.2f" : "T:%.2fC", temperature);//arranges temperature buffer
+            sprintf(mensaje, out_short ? "%.2f" : "T:%.2fC", temperature);//string chain of temperatura to print
             clear_Screen(enabled_gpio);
             stringToScreen(mensaje,enabled_gpio);
             goto_ScreenLine(1,enabled_gpio);
              
         }
         if(out_humi){
-            pos += sprintf(output + pos, out_short ? (pos ? " %.2f" : "%.2f") : (pos ? ", H:%.2f%%" : "H:%.2f%%"), humidity);//acomodo del buffer humedad
-            sprintf(mensaje, out_short ? (pos ? " %.2f" : "%.2f") : (pos ? "H:%.2f%%" : "H:%.2f%%"), humidity);//cadena a imprimir humedad
+            pos += sprintf(output + pos, out_short ? (pos ? " %.2f" : "%.2f") : (pos ? ", H:%.2f%%" : "H:%.2f%%"), humidity);//arranges humidity buffer
+            sprintf(mensaje, out_short ? (pos ? " %.2f" : "%.2f") : (pos ? "H:%.2f%%" : "H:%.2f%%"), humidity);//cstring chain of humidity to print
             stringToScreen(mensaje,enabled_gpio);
         }
       
@@ -139,7 +139,7 @@ int main(int argc, char** argv)
         printf(output);
  
         }
-        sleep(2);// tiempo muerto
+        sleep(2);// delay to wait for the sensor readings
     } 
     return 0;
 }
